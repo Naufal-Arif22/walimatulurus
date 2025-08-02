@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+<title>Raikan Cinta Alif & Anis</title>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>You're Invited!</title>
-    <!--
-      Load Tailwind CSS for beautiful, responsive styling.
-      We'll also use the "Playfair Display" font for elegant headings.
-    -->
     <script src="https://cdn.tailwindcss.com"></script>
+	<script>
+	tailwind.config = {
+	theme: {
+    extend: {
+      colors: {
+        'dustypink': '#E0B0B7',
+		'pink' : '#ffc0cb',
+				}
+			}
+		   }
+					}
+</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
@@ -128,42 +137,65 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!--
-      Intro Screen: The "book cover" or opening page.
-      This will be visible first and will fade out when the button is clicked.
-    -->
-    <div id="intro-screen" class="relative min-h-screen flex flex-col justify-center items-center text-center p-6 transition-all duration-1000 ease-in-out bg-cover bg-center" style="background-image: url('https://placehold.co/1080x1920/D8B4A0/ffffff?text=Wedding+Photo+Placeholder');">
+    <audio id="background-music" src="CintaSesungguhnya.mp3" loop autoplay></audio>
+
+    <button id="play-pause-button" class="fixed bottom-30 right-6 p-3 bg-dustypink text-white rounded-full shadow-lg z-50">
+        <span id="play-pause-icon" class="text-xl">▶️</span>
+    </button>
+	
+	
+    <div id="intro-screen" class="relative min-h-screen flex flex-col justify-center items-center text-center p-6 transition-all duration-1000 ease-in-out bg-cover bg-center" style="background-image: url('indeximage.jpg');">
         <div class="absolute inset-0 bg-black opacity-30"></div>
         <div class="relative z-10 text-white space-y-4">
             <h1 class="font-playfair text-5xl md:text-7xl font-bold leading-tight drop-shadow-lg">
                 Alif & Anis
             </h1>
             <p class="text-xl md:text-2xl font-light tracking-wide">
-                Cordially Invite You to Our Wedding
+                Dengan Segala hormatnya menjemput
             </p>
             <p class="text-lg md:text-xl font-light">
-                Sunday, December 28th, 2025
+                Ahad 28 December 2025
             </p>
-            <button id="open-button" class="mt-8 px-8 py-3 bg-white text-gray-800 rounded-full shadow-lg hover:bg-gray-200 transition-colors duration-300 transform hover:scale-105">
-                Open Invitation
+			<button id="open-button" class="mt-8 px-8 py-3 bg-dustypink text-gray-800 rounded-full shadow-lg hover:bg-dustypink-300 transition-colors duration-300 transform hover:scale-105">
+                Buka
             </button>
         </div>
     </div>
 
-    <!--
-      Main Content: This section will be hidden initially.
-      It will become visible after the intro screen fades out.
-    -->
     <div id="main-content" class="min-h-screen pt-12 pb-20 p-6 sm:px-12 md:px-24 hidden opacity-0">
+	
+	
 
-        <!-- Header Section -->
         <header class="text-center mb-12">
-            <h2 class="font-playfair text-4xl md:text-5xl font-bold mb-2">Alif & Anis</h2>
-            <p class="text-lg text-gray-600">We joyfully request the pleasure of your company as we exchange vows and begin our new life together.</p>
+			<p class="text-lg text-gray-600">Assalamualaikum w.b.t</p>
+            <p class="text-lg text-gray-600">Dengan penuh kesyukuran, kami</p>
+            <h4 class="font-playfair text-4xl md:text-3xl mb-2">Jasni Bin Hamid</h4>
+			<h4 class="font-playfair text-4xl md:text-3xl mb-2">&</h4>
+			<h4 class="font-playfair text-4xl md:text-3xl mb-2">Ida rofida Binti Aboo Bakar</h4>
+			<p class="text-lg text-gray-600">Bersama</p>
+			<h4 class="font-playfair text-4xl md:text-3xl mb-2">Jasni Bin Hamid</h4>
+			<h4 class="font-playfair text-4xl md:text-3xl mb-2">&</h4>
+			<h4 class="font-playfair text-4xl md:text-3xl mb-2">Ida rofida Binti Aboo Bakar</h4>
+            <p class="text-lg text-gray-600">Menjemput Yang Berbahagia Tan Sri/ Puan Sri/ Dato' Seri/ Datin Seri/ Dato’/ Datin/ Tuan/ Puan/ Encik/ Cik ke majlis perkahwinan putera & puteri kami</p>
+            <h2 class="font-playfair text-4xl md:text-5xl font-bold mb-2"> Muhammad Alif Aiman Bin Jasni & Anis</h2>
+			<h2 class="font-playfair text-4xl md:text-5xl font-bold mb-2"> & 
+			<h2 class="font-playfair text-4xl md:text-5xl font-bold mb-2"> Anis </h2>
         </header>
 
-        <!-- Image Carousel Section -->
-        <section class="mb-12">
+        <section id="details" class="mb-12 text-center">
+            <h3 class="font-playfair text-3xl font-bold mb-4">The Ceremony & Reception</h3>
+			<div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-pink">
+                <p class="text-2xl font-semibold mb-2">Ahad, 28 December 2025</p>
+                <p class="text-xl mb-4">4:00 PM</p>
+                <p class="text-lg">The Petals</p>
+                <p class="text-md text-gray-500 mb-6">2-2-2 Taman Ria, Jalan Bukit Gemuruh, Kampung Tengah, 11920 Teluk Kumbar, Pulau Pinang</p>
+                 <div id="countdown-timer" class="flex justify-center items-center space-x-4 text-xl sm:text-2xl font-bold text-pink">
+                    </div>
+            </div>
+        </section>
+        
+		
+		        <section class="mb-12">
             <div class="relative w-full h-80 overflow-hidden rounded-xl shadow-lg">
                 <div id="carousel" class="flex transition-transform ease-in-out duration-700">
                     <img src="https://placehold.co/1080x600/F4EADF/000000?text=Placeholder+Image+1" alt="Wedding Photo 1" class="carousel-item active object-cover w-full h-full">
@@ -177,60 +209,35 @@
                 </div>
             </div>
         </section>
-
-        <!-- Wedding Details Section -->
-        <section id="details" class="mb-12 text-center">
-            <h3 class="font-playfair text-3xl font-bold mb-4">The Ceremony & Reception</h3>
-            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-rose-400">
-                <p class="text-2xl font-semibold mb-2">Sunday, December 28th, 2025</p>
-                <p class="text-xl mb-4">4:00 PM</p>
-                <p class="text-lg">The Grand Garden Venue</p>
-                <p class="text-md text-gray-500 mb-6">123 Wedding Lane, Anytown, State 12345</p>
-                 <!-- Countdown Timer is now part of this section -->
-                <div id="countdown-timer" class="flex justify-center items-center space-x-4 text-xl sm:text-2xl font-bold text-rose-500">
-                    <!-- Countdown content will be generated by JavaScript -->
-                </div>
-            </div>
-        </section>
-        
-        <!--
-          RSVP Section - This section is now visible on the main page.
-          It contains a button that will trigger the pop-up form.
-        -->
+		
+		
         <section id="rsvp-section" class="mb-12 text-center">
-            <h3 class="font-playfair text-3xl font-bold mb-4">RSVP</h3>
-            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-rose-400">
+            <h3 class="font-playfair text-3xl font-bold mb-4">Maklumat Kehadiran</h3>
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-pink">
                 <p class="text-md text-gray-700 mb-6">
-                    Please let us know if you'll be able to join us for our special day.
-                    We kindly ask you to respond by November 28th, 2025.
+                    Sila maklumkan kehadiran yang telah ditetapkan melalui butang RSVP dibawah
+                    Sebelum 28 November 2025.
                 </p>
-                <button id="open-rsvp-button" class="px-8 py-3 bg-rose-500 text-white rounded-full shadow-lg hover:bg-rose-600 transition-colors duration-300 transform hover:scale-105">
-                    Open RSVP Form
+                <button id="open-rsvp-button" class="px-8 py-3 bg-dustypink text-white rounded-full shadow-lg hover:bg-dustypink-300 transition-colors duration-300 transform hover:scale-105">
+                    RSVP
                 </button>
             </div>
         </section>
 
-        <!-- New Guestbook Section - Displays messages from guests -->
         <section id="guestbook-section" class="mb-12 text-center">
-            <h3 class="font-playfair text-3xl font-bold mb-4">Guestbook</h3>
-            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-rose-400">
-                <p class="text-md text-gray-700 mb-6">
-                    Please leave us a special message or well wishes as we start our new life together.
-                </p>
-                <!-- This is the scrollable list of guestbook entries -->
+            <h3 class="font-playfair text-3xl font-bold mb-4">Buku Tetamu</h3>
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-pink">
                 <div id="guestbook-entries" class="h-64 overflow-y-auto p-4 bg-gray-100 rounded-lg shadow-inner mb-6 text-left space-y-4">
-                    <!-- Guestbook entries will be dynamically inserted here -->
-                </div>
-                <button id="open-guestbook-form-button" class="mt-6 px-8 py-3 bg-rose-500 text-white rounded-full shadow-lg hover:bg-rose-600 transition-colors duration-300 transform hover:scale-105">
-                    Write a Message
+                    </div>
+                <button id="open-guestbook-form-button" class="mt-6 px-8 py-3 bg-dustypink text-white rounded-full shadow-lg hover:bg-dustypink-300 transition-colors duration-300 transform hover:scale-105">
+                    Berikan Ucapan
                 </button>
             </div>
         </section>
         
-        <!-- New Section for Venue Information -->
         <section id="venue-info" class="mb-12 text-center">
             <h3 class="font-playfair text-3xl font-bold mb-4">Venue Information</h3>
-            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-rose-400 text-left space-y-4">
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-pink text-left space-y-4">
                 <div class="flex items-start">
                     <span class="text-2xl mr-4">🚻</span>
                     <p class="text-md text-gray-700">
@@ -252,56 +259,51 @@
             </div>
         </section>
 
-        <!-- New Section for Custom Text -->
-        <section id="our-story" class="mb-12 text-center">
-            <h3 class="font-playfair text-3xl font-bold mb-4">Our Story</h3>
-            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-rose-400">
+        <section id="Terima Kasih" class="mb-12 text-center">
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-pink">
                 <p class="text-md text-gray-700">
-                    This is a space for you to write a special message to your guests. You can share your story, talk about how you met, or express your gratitude for their support. Simply edit this text to add your personal touch.
-                </p>
+				Semoga kehadiran Tuan/Puan dapat menyerikan lagi majlis dan diberkati Allah SWT
+				</p>
+                <p class="text-md text-gray-700">
+				Terima Kasih
+				</p>
             </div>
         </section>
         
-        <!-- New Section for Creator Credits -->
         <section id="creator-credit" class="mb-12 text-center">
-            <h3 class="font-playfair text-3xl font-bold mb-4">Credits</h3>
-            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-rose-400">
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-pink">
                 <p class="text-md text-gray-700">
-                    This digital invitation was created with ❤️ by Gemini.
+                    This digital invitation was created with ❤️ by Naufal.
                 </p>
             </div>
         </section>
 
-        <!--
-          RSVP Form Content (Hidden to be used in the modal)
-          This is the content that will be cloned and shown inside the pop-up.
-        -->
         <div id="rsvp-form-modal-content" class="hidden">
             <h3 class="font-playfair text-3xl font-bold text-center mb-6">RSVP</h3>
             <div class="bg-white p-6 rounded-xl shadow-md">
                 <form id="rsvp-form" class="space-y-4">
                     <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Nama Penuh</label>
                         <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 p-2">
                     </div>
                     <div>
-                        <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                        <label for="phone" class="block text-sm font-medium text-gray-700">Nombor telefon</label>
                         <input type="tel" id="phone" name="phone" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 p-2">
                     </div>
                     <div>
-                        <label for="attendance" class="block text-sm font-medium text-gray-700">Will you be attending?</label>
+                        <label for="attendance" class="block text-sm font-medium text-gray-700">Kehadiran?</label>
                         <select id="attendance" name="attendance" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 p-2">
-                            <option value="">Please Select...</option>
-                            <option value="yes">Joyfully Accepting</option>
-                            <option value="no">Regretfully Declining</option>
+                            <option value="">Sila Pilih...</option>
+                            <option value="yes">Hadir</option>
+                            <option value="no">Tidak Hadir</option>
                         </select>
                     </div>
                     <div>
-                        <label for="adults" class="block text-sm font-medium text-gray-700">Number of Adults</label>
+                        <label for="adults" class="block text-sm font-medium text-gray-700">Bilangan Dewasa</label>
                         <input type="number" id="adults" name="adults" min="1" value="1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 p-2">
                     </div>
                     <div>
-                        <label for="children" class="block text-sm font-medium text-gray-700">Number of Children</label>
+                        <label for="children" class="block text-sm font-medium text-gray-700">Bilangan Kanak-kanak</label>
                         <input type="number" id="children" name="children" min="0" value="0" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 p-2">
                     </div>
                     <button type="submit" class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-rose-500 hover:bg-rose-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500 transition-colors duration-300">
@@ -310,86 +312,72 @@
                     <div id="rsvp-message" class="message-box"></div>
                 </form>
                 <p class="mt-4 text-xs text-gray-500 text-center">
-                    *Only one person as a representative from each family needs to fill in this form.
+                    *Hanya seorang wakil sahaja perlu isi RSVP form.
                 </p>
             </div>
         </div>
         
-        <!--
-          Guestbook Form Content (Hidden to be used in the modal)
-          This is the content that will be cloned and shown inside the pop-up.
-        -->
         <div id="guestbook-form-content" class="hidden">
-            <h3 class="font-playfair text-3xl font-bold text-center mb-6">Leave a Wish</h3>
+            <h3 class="font-playfair text-3xl font-bold text-center mb-6">Tinggalkan Ucapan</h3>
             <div class="bg-white p-6 rounded-xl shadow-md">
                 <form id="guestbook-form" class="space-y-4">
                     <div>
-                        <label for="guestbook-name" class="block text-sm font-medium text-gray-700">Your Name</label>
+                        <label for="guestbook-name" class="block text-sm font-medium text-gray-700">Nama</label>
                         <input type="text" id="guestbook-name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 p-2">
                     </div>
                     <div>
-                        <label for="guestbook-message" class="block text-sm font-medium text-gray-700">Your Message</label>
+                        <label for="guestbook-message" class="block text-sm font-medium text-gray-700">Ucapan</label>
                         <textarea id="guestbook-message" name="message" rows="4" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 p-2"></textarea>
                     </div>
                     <button type="submit" class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-rose-500 hover:bg-rose-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500 transition-colors duration-300">
-                        Submit Message
+                        Hantar
                     </button>
                     <div id="guestbook-message-status" class="message-box"></div>
                 </form>
             </div>
         </div>
 
-        <!-- Location Section (Hidden to be used in the modal) -->
         <div id="location-content" class="hidden">
-            <h3 class="font-playfair text-3xl font-bold text-center mb-6">Our Location</h3>
+            <h3 class="font-playfair text-3xl font-bold text-center mb-6">Lokasi</h3>
             <div class="bg-white p-6 rounded-xl shadow-md">
-                <p class="text-xl font-semibold mb-2">The Grand Garden Venue</p>
-                <p class="text-md text-gray-700 mb-4">123 Wedding Lane, Anytown, State 12345</p>
-                <!-- Placeholder for a map iframe. You can replace this with your actual Google Maps embed code. -->
+                <p class="text-xl font-semibold mb-2">The Petals</p>
+                <p class="text-md text-gray-700 mb-4">2-2-2 Taman Ria, Jalan Bukit Gemuruh, Kampung Tengah, 11920 Teluk Kumbar, Pulau Pinang</p>
                 <div class="w-full h-64 rounded-md overflow-hidden border border-gray-200">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.284714652285!2d144.96305731531238!3d-37.81725097975199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642b322a30b21%3A0x5045675218d6e32d!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1612140000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1181.105904778905!2d100.23012497009725!3d5.301516725876002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304a9588992b16fb%3A0xfd978125f23f1bea!2sThe%20Petals!5e0!3m2!1sen!2smy!4v1754155881923!5m2!1sen!2smy" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div class="flex justify-center space-x-4 mt-6">
-                    <a href="https://waze.com/ul?q=The+Grand+Garden+Venue,123+Wedding+Lane,Anytown,State+12345" target="_blank" class="flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 transition-colors duration-300">
+                    <a href="https://www.waze.com/en/live-map/directions/my/pulau-pinang/teluk-kumbar/the-petals?place=ChIJ-xYrmYiVSjAR6hs_8iWBl_0" target="_blank" class="flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 transition-colors duration-300">
                         <span class="mr-2 text-lg">🚗</span> Waze
                     </a>
-                    <a href="https://www.google.com/maps/dir/?api=1&destination=The+Grand+Garden+Venue,123+Wedding+Lane,Anytown,State+12345" target="_blank" class="flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-green-600 transition-colors duration-300">
+                    <a href="https://maps.app.goo.gl/WVPRnQKENYYp5sHa8" target="_blank" class="flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-green-600 transition-colors duration-300">
                         <span class="mr-2 text-lg">🗺️</span> Google Maps
                     </a>
                 </div>
             </div>
         </div>
 
-        <!-- Contact Section (Hidden to be used in the modal) -->
         <div id="contact-content" class="hidden">
             <h3 class="font-playfair text-3xl font-bold text-center mb-6">Contact Us</h3>
             <div class="bg-white p-6 rounded-xl shadow-md text-center space-y-4">
-                <p class="text-lg">For any inquiries or assistance, feel free to contact us directly:</p>
                 
-                <!-- Contact for Alif -->
                 <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                     <span class="text-lg font-semibold">Alif</span>
                     <div class="flex space-x-2">
-                        <!-- WhatsApp Link -->
                         <a href="https://wa.me/1234567890" target="_blank" class="p-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition-colors duration-200">
                             <span class="text-xl">💬</span>
                         </a>
-                        <!-- Phone Call Link -->
-                        <a href="tel:+1234567890" class="p-2 rounded-full bg-rose-500 text-white hover:bg-rose-600 transition-colors duration-200">
+                        <a href="tel:+60109094907" class="p-2 rounded-full bg-rose-500 text-white hover:bg-rose-600 transition-colors duration-200">
                             <span class="text-xl">📞</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Contact for Anis -->
                 <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                     <span class="text-lg font-semibold">Anis</span>
                     <div class="flex space-x-2">
-                        <!-- WhatsApp Link -->
                         <a href="https://wa.me/1234567890" target="_blank" class="p-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition-colors duration-200">
                             <span class="text-xl">💬</span>
                         </a>
-                        <!-- Phone Call Link -->
                         <a href="tel:+1234567890" class="p-2 rounded-full bg-rose-500 text-white hover:bg-rose-600 transition-colors duration-200">
                             <span class="text-xl">📞</span>
                         </a>
@@ -399,81 +387,54 @@
             </div>
         </div>
 
-        <!-- Money Gift Section (Hidden to be used in the modal) -->
         <div id="money-gift-content" class="hidden">
-            <h3 class="font-playfair text-3xl font-bold text-center mb-6">Gift Registry</h3>
+            <h3 class="font-playfair text-3xl font-bold text-center mb-6">Salam Kaut</h3>
             <div class="bg-white p-6 rounded-xl shadow-md text-center">
                 <p class="mb-4">Your presence is the only gift we need! However, if you would like to contribute, a money gift would be greatly appreciated as we start our new life together.</p>
-                <!-- Placeholder for a QR code image. You can replace this with an actual QR code to a payment service. -->
-                <img src="https://placehold.co/200x200?text=QR+Code" alt="Money Gift QR Code" class="mx-auto my-4 rounded-lg shadow-md">
+                <img src="QR_CODE.jpg" alt="Money Gift QR Code" class="mx-auto my-4 rounded-lg shadow-md">
                 <p class="text-sm text-gray-500">Scan this QR code to contribute.</p>
             </div>
         </div>
     </div>
+  
 
-    <!--
-      Fixed Navigation Bar.
-      This will always be visible at the bottom of the screen.
-      It uses flexbox for horizontal alignment and anchors to scroll to sections.
-      We've added 'hidden' and 'opacity-0' classes to hide it on initial load.
-    -->
     <nav id="nav-bar" class="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t-2 border-gray-100 p-2 z-50 hidden opacity-0">
         <div class="flex justify-around items-center h-full">
+			<a href="#" id="refresh-button" class="flex-1 text-center py-2 px-1 text-gray-500 hover:text-rose-500 transition-colors duration-300">
+                <span class="block text-2xl">🔄</span>
+                <span class="block text-xs mt-1">Refresh</span>
+            </a>
             <a href="#rsvp-section" id="rsvp-button" class="flex-1 text-center py-2 px-1 text-gray-500 hover:text-rose-500 transition-colors duration-300">
                 <span class="block text-2xl">🎁</span>
                 <span class="block text-xs mt-1">RSVP</span>
             </a>
-            <a href="#guestbook-section" id="guestbook-button" class="flex-1 text-center py-2 px-1 text-gray-500 hover:text-rose-500 transition-colors duration-300">
-                <span class="block text-2xl">📝</span>
-                <span class="block text-xs mt-1">Guestbook</span>
-            </a>
             <a href="#" id="location-button" class="flex-1 text-center py-2 px-1 text-gray-500 hover:text-rose-500 transition-colors duration-300">
                 <span class="block text-2xl">📍</span>
-                <span class="block text-xs mt-1">Location</span>
+                <span class="block text-xs mt-1">Lokasi</span>
             </a>
             <a href="#" id="contact-button" class="flex-1 text-center py-2 px-1 text-gray-500 hover:text-rose-500 transition-colors duration-300">
                 <span class="block text-2xl">📞</span>
-                <span class="block text-xs mt-1">Contact</span>
+                <span class="block text-xs mt-1">Hubungi</span>
             </a>
             <a href="#" id="money-gift-button" class="flex-1 text-center py-2 px-1 text-gray-500 hover:text-rose-500 transition-colors duration-300">
                 <span class="block text-2xl">💰</span>
-                <span class="block text-xs mt-1">Gift</span>
-            </a>
-            <!-- New refresh button added here -->
-            <a href="#" id="refresh-button" class="flex-1 text-center py-2 px-1 text-gray-500 hover:text-rose-500 transition-colors duration-300">
-                <span class="block text-2xl">🔄</span>
-                <span class="block text-xs mt-1">Refresh</span>
+                <span class="block text-xs mt-1">Salam Kaut</span>
             </a>
         </div>
     </nav>
     
-    <!--
-      Modal Overlay & Content
-      This section is the new pop-up window that will be shown when
-      a navigation button is clicked. It is hidden by default.
-    -->
     <div id="modal-overlay" class="modal-overlay">
         <div class="modal-content w-full sm:max-w-md">
             <div class="flex justify-end">
-                <button id="close-modal-button" class="text-gray-500 hover:text-gray-900 text-2xl font-bold">&times;</button>
+                <button id="close-modal-button" class="text-gray-500 hover:text-gray-900 text-2xl font-bold">×</button>
             </div>
             <div id="modal-body" class="pt-4">
-                <!-- Content will be dynamically inserted here by JavaScript -->
-            </div>
+                </div>
         </div>
     </div>
     
-    <!--
-      Error/Success message box that can be reused for any action.
-      It is hidden by default and will be shown/hidden as needed.
-    -->
     <div id="general-message-box" class="message-box fixed top-4 left-1/2 -translate-x-1/2 w-11/12 sm:max-w-md rounded-lg shadow-lg z-[101]"></div>
     
-    <!--
-      Firebase Imports
-      These are the necessary scripts to connect to a Firestore database.
-      We'll import the core app, auth, and firestore modules.
-    -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
@@ -548,28 +509,50 @@
                 const introScreen = document.getElementById('intro-screen');
                 const mainContent = document.getElementById('main-content');
                 const navBar = document.getElementById('nav-bar');
+                // [START of new code]
+                const backgroundMusic = document.getElementById('background-music');
+                const playPauseButton = document.getElementById('play-pause-button');
+                const playPauseIcon = document.getElementById('play-pause-icon');
 
+                // Function to play the music
+                const playMusic = () => {
+                    backgroundMusic.play().then(() => {
+                        playPauseIcon.textContent = '⏸️'; // Change to pause icon
+                    }).catch(error => {
+                        console.error('Autoplay was prevented. User interaction required.', error);
+                    });
+                };
+                
+                // Event listener to start the music when the invitation is opened
                 openButton.addEventListener('click', () => {
-                    // Add a class to fade out the intro screen and make it unclickable.
                     introScreen.classList.add('fade-out');
-
-                    // Wait for the fade-out transition to complete before showing the main content.
+                    playMusic(); // Play music on user interaction
+                
                     setTimeout(() => {
-                        introScreen.classList.add('hidden'); // Fully hide the intro screen
-
-                        // Reveal the main content and navigation bar at the same time.
+                        introScreen.classList.add('hidden');
+                
                         mainContent.classList.remove('hidden');
                         navBar.classList.remove('hidden');
-
+                
                         setTimeout(() => {
-                            mainContent.classList.remove('opacity-0'); // Fade in the main content
-                            navBar.classList.remove('opacity-0'); // Fade in the navigation bar
-                            
-                            // Start the countdown timer as soon as the main content is visible
+                            mainContent.classList.remove('opacity-0');
+                            navBar.classList.remove('opacity-0');
                             startCountdown();
-                        }, 50); // Small delay to ensure the `hidden` class is removed first.
-                    }, 1000); // This duration should match the CSS transition duration.
+                        }, 50);
+                    }, 1000);
                 });
+                
+                // Event listener for the play/pause button
+                playPauseButton.addEventListener('click', () => {
+                    if (backgroundMusic.paused) {
+                        backgroundMusic.play();
+                        playPauseIcon.textContent = '⏸️'; // Change to pause icon
+                    } else {
+                        backgroundMusic.pause();
+                        playPauseIcon.textContent = '▶️'; // Change to play icon
+                    }
+                });
+                // [END of new code]
 
                 // --- Image Carousel ---
                 let slideIndex = 0;
@@ -857,4 +840,3 @@
     </script>
 </body>
 </html>
-
