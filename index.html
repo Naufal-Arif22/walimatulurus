@@ -828,15 +828,16 @@
             
             // This is the Firebase configuration you provided.
             // It is used to initialize your project.
-            const firebaseConfig = {
-                apiKey: "AIzaSyA-AWZstpEXLlNdIcxBacz3CqgvHuO7WTk",
-                authDomain: "kadkahwinapp.firebaseapp.com",
-                projectId: "kadkahwinapp",
-                storageBucket: "kadkahwinapp.firebasestorage.app",
-                messagingSenderId: "379804424047",
-                appId: "1:379804424047:web:aee85c708ce1a0bc39ba9a",
-                measurementId: "G-GC67C5YW8H"
-            };
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+			const firebaseConfig = {
+ 			 apiKey: "AIzaSyA-AWZstpEXLlNdIcxBacz3CqgvHuO7WTk",
+ 			 authDomain: "kadkahwinapp.firebaseapp.com",
+  			projectId: "kadkahwinapp",
+ 			 storageBucket: "kadkahwinapp.firebasestorage.app",
+ 			 messagingSenderId: "379804424047",
+			  appId: "1:379804424047:web:aee85c708ce1a0bc39ba9a",
+ 			 measurementId: "G-GC67C5YW8H"
+			};
             const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
             const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
