@@ -12,6 +12,7 @@
       colors: {
         'dustypink': '#E0B0B7',
 		'pink' : '#ffc0cb',
+		'flamingopink' : '#f6a1b6',
 				}
 			}
 		   }
@@ -242,7 +243,7 @@
             position: relative;
             z-index: 1; /* Ensures content is on top of the animation */
         }
-
+		
 		/* fade-in-animation */
         .scroll-fade-in-section {
             opacity: 0;
@@ -285,6 +286,7 @@
             background: transparent;
         }
 
+		
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -457,6 +459,20 @@
             </div>
         </section>
 		
+		<section id="Silver Surfer" class="mb-12 text-center scroll-fade-in-section">
+            <div class="frosted-glass p-6 rounded-xl shadow-md border-t-4 border-pink">
+                <p class="text-md text-gray-700">
+				"Are you the protectors of this world?"
+				</p>
+                <p class="text-md text-gray-700">
+				"Your planet is now marked for death. Your world will be consumed by The Devourer. There is nothing you can do to stop him, for he is a universal force, as essential as the stars. Hold your loved ones close and speak the words you've been afraid to speak. Use this time to rejoice and celebrate. 
+				</p>
+                <p class="text-md text-gray-700">
+				For your time is short. I herald his beginning. I herald your end. I herald... Galactus!!!!"
+				</p>
+            </div>
+        </section>
+		
         <section id="Terima Kasih" class="mb-12 text-center scroll-fade-in-section">
             <div class="frosted-glass p-6 rounded-xl shadow-md border-t-4 border-pink">
                 <p class="text-md text-gray-700">
@@ -478,22 +494,22 @@
         </section>
 
         
-        <div id="book-form-content" class="hidden">
+        <div id="guestbook-form-content" class="hidden">
             <h3 class="font-playfair text-3xl font-bold text-center mb-6">Leave a Wish</h3>
             <div class="bg-white p-6 rounded-xl shadow-md">
-                <form id="book-form" class="space-y-4">
+                <form id="guestbook-form" class="space-y-4">
                     <div>
-                        <label for="book-name" class="block text-sm font-medium text-gray-700">Name</label>
-                        <input type="text" id="book-name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 p-2">
+                        <label for="guestbook-name" class="block text-sm font-medium text-gray-700">Name</label>
+                        <input type="text" id="guestbook-name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 p-2">
                     </div>
                     <div>
-                        <label for="book-message" class="block text-sm font-medium text-gray-700">Your Message</label>
-                        <textarea id="book-message" name="message" rows="4" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 p-2"></textarea>
+                        <label for="guestbook-message" class="block text-sm font-medium text-gray-700">Your Message</label>
+                        <textarea id="guestbook-message" name="message" rows="4" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 p-2"></textarea>
                     </div>
                     <button type="submit" class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-rose-500 hover:bg-rose-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500 transition-colors duration-300">
                         Submit Message
                     </button>
-                    <div id="book-message-status" class="message-box"></div>
+                    <div id="guestbook-message-status" class="message-box"></div>
                 </form>
             </div>
         </div>
@@ -828,16 +844,15 @@
             
             // This is the Firebase configuration you provided.
             // It is used to initialize your project.
-            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-			const firebaseConfig = {
- 			 apiKey: "AIzaSyA-AWZstpEXLlNdIcxBacz3CqgvHuO7WTk",
- 			 authDomain: "kadkahwinapp.firebaseapp.com",
-  			projectId: "kadkahwinapp",
- 			 storageBucket: "kadkahwinapp.firebasestorage.app",
- 			 messagingSenderId: "379804424047",
-			  appId: "1:379804424047:web:aee85c708ce1a0bc39ba9a",
- 			 measurementId: "G-GC67C5YW8H"
-			};
+            const firebaseConfig = {
+                apiKey: "AIzaSyA-AWZstpEXLlNdIcxBacz3CqgvHuO7WTk",
+                authDomain: "kadkahwinapp.firebaseapp.com",
+                projectId: "kadkahwinapp",
+                storageBucket: "kadkahwinapp.firebasestorage.app",
+                messagingSenderId: "379804424047",
+                appId: "1:379804424047:web:aee85c708ce1a0bc39ba9a",
+                measurementId: "G-GC67C5YW8H"
+            };
             const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
             const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
@@ -867,7 +882,7 @@
 
                 // --- Firestore Collection References ---
                 // The collections are scoped to the app ID to prevent conflicts.
-                const bookCollectionRef = collection(db, `artifacts/${appId}/public/data/book-entries`);
+                const guestbookCollectionRef = collection(db, `artifacts/${appId}/public/data/guestbook-entries`);
 
 				// NEW: Declared the placeholder image as a constant for easy modification.
 				const backgroundImage = 'indeximage.jpg';
@@ -1002,8 +1017,8 @@ playPauseButton.addEventListener('click', () => {
                     modalBody.appendChild(clonedContent); // Add the new content.
                     modalOverlay.classList.add('active'); // Show the modal overlay.
                     
-                    // If the modal content is the book form, re-attach the event listener.
-                    if (contentElement.id === 'book-form-content') {
+                    // If the modal content is the Guestbook form, re-attach the event listener.
+                    if (contentElement.id === 'guestbook-form-content') {
                         const guestbookForm = clonedContent.querySelector('#guestbook-form');
                         if (guestbookForm) {
                             guestbookForm.addEventListener('submit', handleGuestbookSubmit);
@@ -1085,7 +1100,7 @@ playPauseButton.addEventListener('click', () => {
                     // Create and append a card for each entry.
                     entries.forEach(entry => {
                         const entryCard = document.createElement('div');
-                        entryCard.classList.add('bg-frosted-glass', 'p-4',);
+                        entryCard.classList.add('bg-frosted-glass-50', 'p-4', );
                         entryCard.innerHTML = `
                             <p class="font-bold text-lg text-rose-500">${entry.name}</p>
                             <p class="text-gray-700 mt-2">${entry.message}</p>
@@ -1207,13 +1222,8 @@ playPauseButton.addEventListener('click', () => {
             sectionsToAnimate.forEach(section => {
                 observer.observe(section);
             });
+            
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
