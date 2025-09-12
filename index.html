@@ -29,6 +29,7 @@
         body {
             font-family: 'Cinzel', sans-serif;
             overflow-x: hidden;
+			 cursor: none; /* Hide the default cursor */
         }
 
         .font-playfair {
@@ -286,6 +287,35 @@
             background: transparent;
         }
 
+        /* --- START OF GLITTER EFFECT CSS --- */
+        .glitter-particle {
+            position: fixed;
+            pointer-events: none;
+            background-color: #fff;
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0);
+            z-index: 999;
+            animation: glitter-fade 1.5s ease-out forwards;
+        }
+        
+        @keyframes glitter-fade {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            10% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.5);
+                filter: blur(2px);
+            }
+        }
+        /* --- END OF GLITTER EFFECT CSS --- */
+		
 		
     </style>
 </head>
@@ -302,6 +332,8 @@
     </span>
 </button>
 	
+	<!-- This div will contain the glitter particles -->
+	<div id="glitter-container"></div>
 	
     <!-- The modified intro screen with "book pages" -->
     <div id="intro-screen" class="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -374,9 +406,9 @@
 		        <section class="mb-12 scroll-fade-in-section">
             <div class="relative w-full h-80 overflow-hidden rounded-xl shadow-lg">
                 <div id="carousel" class="flex transition-transform ease-in-out duration-700">
-                    <img src="pic1.jpg" alt="Wedding Photo 1" class="carousel-item active object-cover w-full h-full">
-                    <img src="pic2.jpg" alt="Wedding Photo 2" class="carousel-item object-cover w-full h-full">
-                    <img src="pic3.jpg" alt="Wedding Photo 3" class="carousel-item object-cover w-full h-full">
+                    <img src="https://placehold.co/1080x600/F4EADF/000000?text=Placeholder+Image+1" alt="Wedding Photo 1" class="carousel-item active object-cover w-full h-full">
+                    <img src="https://placehold.co/1080x600/E8D2C5/000000?text=Placeholder+Image+2" alt="Wedding Photo 2" class="carousel-item object-cover w-full h-full">
+                    <img src="https://placehold.co/1080x600/C8A17A/000000?text=Placeholder+Image+3" alt="Wedding Photo 3" class="carousel-item object-cover w-full h-full">
                 </div>
                 <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
                     <span class="dot w-2 h-2 bg-white rounded-full cursor-pointer opacity-50" onclick="currentSlide(0)"></span>
@@ -1223,6 +1255,35 @@ playPauseButton.addEventListener('click', () => {
                 observer.observe(section);
             });
             
+        // --- START OF GLITTER EFFECT JAVASCRIPT ---
+        const glitterContainer = document.getElementById('glitter-container');
+        document.addEventListener('mousemove', (event) => {
+            // Create a new glitter particle
+            const particle = document.createElement('div');
+            particle.classList.add('glitter-particle');
+            
+            // Set its position to the cursor's location
+            particle.style.left = `${event.clientX}px`;
+            particle.style.top = `${event.clientY}px`;
+            
+            // Set a random size and color for variation
+            const size = Math.random() * 8 + 2; // Size between 2 and 10
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+
+            // Random pink/white color
+            const colors = ['#ffffff', '#ffc0cb', '#f6a1b6', '#ffb3c1'];
+            particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            // Append to the container
+            glitterContainer.appendChild(particle);
+
+            // Remove the particle after its animation finishes
+            setTimeout(() => {
+                particle.remove();
+            }, 1500); 
+        });
+        // --- END OF GLITTER EFFECT JAVASCRIPT ---
         });
     </script>
 </body>
