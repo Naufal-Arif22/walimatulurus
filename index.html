@@ -111,11 +111,11 @@
             transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
         }
         #left-page {
-            background-image: url('floralbg.png');
+            background-image: url('floralbg.jpg');
             background-position: left;
         }
         #right-page {
-            background-image: url('floralbg.png');
+            background-image: url('floralbg.jpg');
             background-position: right;
         }
 
@@ -917,7 +917,7 @@
                 const guestbookCollectionRef = collection(db, `artifacts/${appId}/public/data/guestbook-entries`);
 
 				// NEW: Declared the placeholder image as a constant for easy modification.
-				const backgroundImage = 'floralbg.png';
+				const backgroundImage = 'floralbg.jpg';
 				document.getElementById('left-page').style.backgroundImage = `url('${backgroundImage}')`;
 				document.getElementById('right-page').style.backgroundImage = `url('${backgroundImage}')`;
 				// --- Intro Screen & Main Content Toggle ---
@@ -1288,3 +1288,4 @@ playPauseButton.addEventListener('click', () => {
     </script>
 </body>
 </html>
+
