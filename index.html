@@ -21,6 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Cinzel:wght@400..900&family=Dynalight&family=Explora&family=Great+Vibes&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap" rel="stylesheet">
 	<style>
         /*
           Custom CSS for smooth transitions and a few key styles.
@@ -55,6 +56,12 @@
 		
 		.great-vibes-regular {
 			font-family: "Great Vibes", cursive;
+			font-weight: 400;
+			font-style: normal;
+		}
+		
+		.petit-formal-script-regular {
+			font-family: "Petit Formal Script", cursive;
 			font-weight: 400;
 			font-style: normal;
 		}
@@ -319,7 +326,7 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <audio id="background-music" src="DearGodPiano.mp3" loop autoplay></audio>
+    <audio id="background-music" src="piano.mpeg" loop autoplay></audio>
 
     <button id="play-pause-button" class="fixed bottom-30 right-6 p-3 bg-pink text-white rounded-full shadow-lg z-50">
     <!-- The SVG icon is now directly inside the span, replacing the emoji. -->
@@ -378,14 +385,65 @@
 			<p class="text-base text-gray-600">Together with</p>
 			<h4 class="text-xl md:text-2xl text-gray-900 mb-1">Sazliena Binti Azmi</h4>
             <p class="text-base text-gray-600">Cordially invite you to join us at the Wedding Reception of our beloved children</p>
-			<br>            <h2 class="great-vibes-regular text-xl md:text-2xl font-bold mb-1"> Muhammad Alif Aiman Bin Jasni</h2>
+			<br>            <h2 class="petit-formal-script-regular text-xl md:text-2xl font-bold mb-1"> Muhammad Alif Aiman Bin Jasni</h2>
 			<h2 class="great-vibes-regular text-lg md:text-xl font-bold mb-1"> & </h2>
-			<h2 class="great-vibes-regular text-xl md:text-2xl font-bold mb-1"> Nurul Yuhanis Binti Mohd Yusof </h2>
+			<h2 class="petit-formal-script-regular text-xl md:text-2xl font-bold mb-1"> Nurul Yuhanis Binti Mohd Yusof </h2>
 			<div class="line-container">
   <div class="horizontal-line"></div>
 </div>
 		</header>
+    <div id="rsvp-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 z-50 flex items-center justify-center transition-opacity duration-300">
+        
+        <!-- Modal Card -->
+        <div class="bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-2xl max-w-sm w-11/12 transform transition-all duration-300 scale-100">
+                       
+		   <!-- START: LOCATION OF THE 'X' CLOSE BUTTON HTML -->
+            <button id="close-x-button" aria-label="Close" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition duration-150 p-1 rounded-full hover:bg-gray-100">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <!-- END: LOCATION OF THE 'X' CLOSE BUTTON HTML -->
+			
+            <div class="text-center">
+                <!-- Icon for emphasis (optional) -->
+                <svg class="mx-auto h-12 w-12 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.3 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+                
+                <h2 class="mt-4 text-2xl font-bold text-gray-900 leading-snug">
+                    PLEASE ANSWER THE RSVP FORM
+                </h2>
+                <p class="mt-2 text-sm text-gray-500">
+                    This step is required to finalize your attendance and receive critical event updates.
+                </p>
+            </div>
 
+            <!-- RSVP Button (The only way to close the modal) -->
+            <div class="mt-6">
+                <!-- 
+                    The button is an anchor tag to handle the link requirement.
+                    We use target="_blank" to open the form in a new tab, 
+                    allowing the user to confirm attendance while keeping this page open.
+                -->
+                <a 
+                    id="rsvp-button" 
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSdOpty9BAWrqVomRF1HQEMbValXBVItOKYZw9UMMyl8EFr6YA/viewform" 
+                    target="_blank" 
+                    class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-pink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out transform hover:scale-105"
+                >
+                    RSVP NOW
+                </a>
+            </div>
+            
+            <!-- Hidden Message for clarity -->
+            <p id="thank-you-message" class="mt-4 text-sm text-green-600 font-semibold text-center hidden">
+                Thank you! You can now view the page.
+            </p>
+
+        </div>
+    </div>
+	
         <section id="details" class="mb-12 text-center scroll-fade-in-section">
 			<h3 class="font-playfair text-2xl font-bold mb-4">THE CEREMONY & RECEPTION</h3>
 			<div class="frosted-glass p-6 rounded-xl shadow-md border-t-4 border-pink">
@@ -398,19 +456,36 @@
             </div>
         </section>
 		
-        
 		
 		        <section class="mb-12 scroll-fade-in-section">
-            <div class="relative w-full h-80 overflow-hidden rounded-xl shadow-lg">
+            <div class="relative w-full h-full overflow-hidden rounded-xl shadow-lg">
                 <div id="carousel" class="flex transition-transform ease-in-out duration-700">
-                    <img src="https://placehold.co/1080x600/F4EADF/000000?text=Placeholder+Image+1" alt="Wedding Photo 1" class="carousel-item active object-cover w-full h-full">
-                    <img src="https://placehold.co/1080x600/E8D2C5/000000?text=Placeholder+Image+2" alt="Wedding Photo 2" class="carousel-item object-cover w-full h-full">
-                    <img src="https://placehold.co/1080x600/C8A17A/000000?text=Placeholder+Image+3" alt="Wedding Photo 3" class="carousel-item object-cover w-full h-full">
+                    <img src="pic1.jpeg" alt="Wedding Photo 1" class="carousel-item active object-cover w-full h-full">
+                    <img src="pic2.jpeg" alt="Wedding Photo 2" class="carousel-item object-cover w-full h-full">
+                    <img src="pic3.jpeg" alt="Wedding Photo 3" class="carousel-item object-cover w-full h-full">
+                    <img src="pic4.jpeg" alt="Wedding Photo 4" class="carousel-item object-cover w-full h-full">
+                    <img src="pic5.jpeg" alt="Wedding Photo 5" class="carousel-item object-cover w-full h-full">
+                    <img src="pic6.jpeg" alt="Wedding Photo 6" class="carousel-item object-cover w-full h-full">
+                    <img src="pic7.jpeg" alt="Wedding Photo 7" class="carousel-item object-cover w-full h-full">
+                    <img src="pic8.jpeg" alt="Wedding Photo 8" class="carousel-item object-cover w-full h-full">
+                    <img src="pic9.jpeg" alt="Wedding Photo 9" class="carousel-item object-cover w-full h-full">
+                    <img src="pic10.jpeg" alt="Wedding Photo 10" class="carousel-item object-cover w-full h-full">
+                    <img src="pic11.jpeg" alt="Wedding Photo 11" class="carousel-item object-cover w-full h-full">
+
                 </div>
                 <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
                     <span class="dot w-2 h-2 bg-white rounded-full cursor-pointer opacity-50" onclick="currentSlide(0)"></span>
                     <span class="dot w-2 h-2 bg-white rounded-full cursor-pointer opacity-50" onclick="currentSlide(1)"></span>
                     <span class="dot w-2 h-2 bg-white rounded-full cursor-pointer opacity-50" onclick="currentSlide(2)"></span>
+				    <span class="dot w-2 h-2 bg-white rounded-full cursor-pointer opacity-50" onclick="currentSlide(3)"></span>
+                    <span class="dot w-2 h-2 bg-white rounded-full cursor-pointer opacity-50" onclick="currentSlide(4)"></span>
+                    <span class="dot w-2 h-2 bg-white rounded-full cursor-pointer opacity-50" onclick="currentSlide(5)"></span>
+                    <span class="dot w-2 h-2 bg-white rounded-full cursor-pointer opacity-50" onclick="currentSlide(6)"></span>	
+                    <span class="dot w-2 h-2 bg-white rounded-full cursor-pointer opacity-50" onclick="currentSlide(7)"></span>
+                    <span class="dot w-2 h-2 bg-white rounded-full cursor-pointer opacity-50" onclick="currentSlide(8)"></span>
+				    <span class="dot w-2 h-2 bg-white rounded-full cursor-pointer opacity-50" onclick="currentSlide(9)"></span>
+				    <span class="dot w-2 h-2 bg-white rounded-full cursor-pointer opacity-50" onclick="currentSlide(10)"></span>
+
                 </div>
             </div>
         </section>
@@ -446,29 +521,6 @@
             </div>
         </section>
         
-        <section id="venue-info" class="mb-12 text-center scroll-fade-in-section">
-            <h3 class="font-playfair text-2xl font-bold mb-4">VENUE INFORMATION</h3>
-            <div class="frosted-glass p-6 rounded-xl shadow-md border-t-4 border-pink text-left space-y-4">
-                <div class="flex items-start">
-                    <span class="text-2xl mr-4">🚻</span>
-                    <p class="text-md text-gray-700">
-                        **Restrooms:** Located at the back of the main hall, on both the left and right sides.
-                    </p>
-                </div>
-                <div class="flex items-start">
-                    <span class="text-2xl mr-4">🙏</span>
-                    <p class="text-md text-gray-700">
-                        **Prayer Room:** A designated prayer room is available on the left side of the main hall, behind the reception area.
-                    </p>
-                </div>
-                <div class="flex items-start">
-                    <span class="text-2xl mr-4">🅿️</span>
-                    <p class="text-md text-gray-700">
-                        **Parking:** Ample parking is available in the lot surrounding the venue. Additional overflow parking can be found across the street.
-                    </p>
-                </div>
-            </div>
-        </section>
 
 		<section id="Doa" class="mb-12 text-center scroll-fade-in-section">
 		<div class="frosted-glass p-6 rounded-xl shadow-md border-t-4 border-pink">
@@ -1224,19 +1276,84 @@ playPauseButton.addEventListener('click', () => {
             
 
         });
+		
+		        document.addEventListener('DOMContentLoaded', () => {
+            const rsvpModal = document.getElementById('rsvp-modal');
+            const rsvpButton = document.getElementById('rsvp-button');
+            const appContent = document.getElementById('app-content');
+            const thankYouMessage = document.getElementById('thank-you-message');
+            const body = document.body;
+            
+            // Placeholder: The actual RSVP link should be changed here
+            const rsvpLink = "https://docs.google.com/forms/d/e/1FAIpQLSdOpty9BAWrqVomRF1HQEMbValXBVItOKYZw9UMMyl8EFr6YA/viewform";
+            rsvpButton.href = rsvpLink;
+
+
+            // --- Core Logic: Handle Clicks on the RSVP button ---
+            rsvpButton.addEventListener('click', (event) => {
+                // IMPORTANT: The button must be an anchor tag for the link to work.
+                // The event will naturally open the link in a new tab due to target="_blank".
+                
+                // 1. Visually update the modal to confirm the click
+                rsvpButton.classList.add('hidden');
+                thankYouMessage.classList.remove('hidden');
+
+                // 2. Schedule the modal to close and content to appear after a short delay
+                // This gives the user time to see the confirmation message.
+                setTimeout(() => {
+                    // Hide the modal with a smooth fade-out
+                    rsvpModal.classList.add('opacity-0');
+
+                    // After the fade-out is complete (300ms), finalize the changes
+                    setTimeout(() => {
+                        rsvpModal.classList.add('hidden');
+                        appContent.classList.remove('hidden');
+                        body.classList.remove('modal-active'); // Re-enable scrolling
+                    }, 300);
+
+                }, 1000); // Wait 1 second after click confirmation
+            });
+
+            // --- Prevent Modal Closure by External Clicks (Makes it unclosable) ---
+            rsvpModal.addEventListener('click', (event) => {
+                // Check if the click occurred directly on the backdrop (not inside the card)
+                if (event.target === rsvpModal) {
+                    // Prevent the modal from closing by clicking outside
+                    event.stopPropagation();
+                    console.log('Action required: Please click the "RSVP NOW" button to proceed.');
+                    
+					 // START: LISTEN FOR CLICKS ON THE 'X' BUTTON
+					closeXButton.addEventListener('click', denyClose); 
+					// END: LISTEN FOR CLICKS ON THE 'X' BUTTON	
+					
+                    // Optional: Add a subtle shake effect to draw attention back to the button
+                    const modalCard = rsvpModal.querySelector('div:nth-child(1)');
+                    modalCard.classList.add('animate-shake');
+                    setTimeout(() => {
+                        modalCard.classList.remove('animate-shake');
+                    }, 500);
+                }
+            });
+
+            // Optional: Add a subtle shake animation for the unclosable feature
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    20%, 60% { transform: translateX(-5px); }
+                    40%, 80% { transform: translateX(5px); }
+                }
+                .animate-shake {
+                    animation: shake 0.5s;
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Hide the app content initially, ensuring the modal is the first thing seen
+            appContent.classList.add('hidden');
+            rsvpModal.classList.remove('hidden'); 
+        });
+		
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
